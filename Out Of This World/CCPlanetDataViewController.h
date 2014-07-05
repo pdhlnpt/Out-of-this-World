@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCSpaceObject.h"
 
-@interface CCPlanetDataViewController : UIViewController
-
+@interface CCPlanetDataViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) CCSpaceObject *myPlanet;
 @end

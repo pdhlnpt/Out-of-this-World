@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCAddPlanetViewController.h"
 
-@interface CCTableViewController : UITableViewController
+@interface CCTableViewController : UITableViewController <CCAddPlanetVCDelegate>
 
+@property (strong, nonatomic)NSMutableArray *planets;
+@property (strong, nonatomic)NSMutableArray *addedPlanet;
 @end

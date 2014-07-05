@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIImage *orionImage = [UIImage imageNamed:@"Orion.jpg"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:orionImage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,4 +48,26 @@
 }
 */
 
+- (IBAction)cancelButton:(UIButton *)sender {
+    [self.delegate didCancel];
+}
+
+- (IBAction)AddButton:(UIButton *)sender {
+    CCSpaceObject *newPlanetObject = [self returnNewPlanet];
+    [self.delegate addPlanetObject:newPlanetObject];
+}
+
+- (CCSpaceObject *)returnNewPlanet
+{
+    CCSpaceObject *addedPlanet = [[CCSpaceObject alloc]init];
+    addedPlanet.planetName = self.nameTextField.text;
+    addedPlanet.planetNickName = self.nickNameTextField.text;
+    addedPlanet.planetDiameter = [self.diameterTextField.text floatValue];
+    addedPlanet.planetTemperature = [self.diameterTextField.text floatValue];
+    addedPlanet.planetNumberOfMoon = [self.numberOfMoonsTextField.text intValue];
+    addedPlanet.planetInterestingFact = self.interactingFactTextField.text;
+    addedPlanet.planetImage = [UIImage imageNamed:@"EinsteinRing.jpg"];
+      
+    return addedPlanet;
+}
 @end
